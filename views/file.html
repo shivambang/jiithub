@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+  <style>
+    table.diff {
+      font-family: Courier;
+      border: medium;
+    }
+
+    .diff_header {
+      background-color: #e0e0e0
+    }
+
+    td.diff_header {
+      text-align: right
+    }
+
+    .diff_next {
+      background-color: #c0c0c0
+    }
+
+    .diff_add {
+      background-color: #aaffaa
+    }
+
+    .diff_chg {
+      background-color: #ffff77
+    }
+
+    .diff_sub {
+      background-color: #ffaaaa
+    }
+
+    label {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .reponame {
+      background-color: #FAFBFC;
+      font-size: 24px;
+      padding: 8px;
+      width: 100%;
+    }
+
+    .basic-card {
+      background-color: #FAFBFC;
+    }
+
+    .fileview {
+      font-family: 'Inconsolata', monospace;
+
+    }
+
+    .fileview .diff {
+      max-width: 80px;
+    }
+
+    .list-group li:hover {
+      background-color: #FAFBFC;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="page-container" style="background-color:white;">
+    {{header}}
+    <div class="container mt-5" style="padding-bottom:50px;">
+      <!-- File Viewer -->
+      <div class="card mb-4" style="font-size:14px;">
+        <div class="card-header" style="font-weight:bold;font-size:16px;">
+          {{name}}
+          <div class="btn-group btn-group-toggle" style="float:right;" data-toggle="buttons">
+            <label class="btn btn-outline-primary active btn-sm" onclick="view('code', 'diff')">
+              <input type="radio" name="options" id="View" autocomplete="off" checked> View
+            </label>
+            <label class="btn btn-outline-primary btn-sm" onclick="view('diff', 'code')">
+              <input type="radio" name="options" id="History" autocomplete="off"> History
+            </label>
+          </div>
+        </div>
+        <div id='code' class="card-body fileview text-muted">
+          <pre class="prettyprint">{{code}}</pre>
+        </div>
+        <div id='diff' class="card-body fileview text-muted" style="display: none">
+          {{diff}}
+        </div>
+
+      </div>
+    </div>
+    {{footer}}
+  </div>
+  <script>
+    function view(idb, idn) {
+      document.getElementById(idb).style.display = 'block'
+      document.getElementById(idn).style.display = 'none'
+    }
+  </script>
+
+</body>
+
+</html>

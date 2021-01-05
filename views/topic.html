@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title>Homepage</title>
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+
+    <style>
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .reponame {
+            background-color: #FAFBFC;
+            font-size: 24px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        .basic-card,
+        .basic-card .card-footer {
+            background-color: #FAFBFC;
+        }
+
+        .fileview {
+            font-family: 'Inconsolata', monospace;
+        }
+
+        .list-group li:hover {
+            background-color: #FAFBFC;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container" style="background-color:white;">
+        {{fheader}}
+        <div class="container" style="padding-bottom:50px;">
+            <!-- Repocard -->
+            <div class="card basic-card mb-4 shadow-sm p-1 mt-4">
+                <div class="card-body">
+                    <a style="display:none" class="btn btn-primary btn-sm" href="createTopic.php" style="float:right;">Extend deadline</a>
+                    <h5 class="card-title font-weight-normal" style="font-size:24px;" id="name">{{name}}</h5>
+                    <h6 class="card-subtitle mb-3 text-muted" >{{cname}}</h6><h6 id="cid">{{cid}}</h6>
+                    <h6 class="card-subtitle mb-3 text-muted" id="fid" style="display:none">{{fid}}</h6>
+                    <!--h6 class="card-subtitle mb-2 text-muted">Deadline: {{date}}</h6-->
+                    <!--p class="card-text">{{desc}}</p-->
+                </div>
+            </div>
+            <!-- Browser -->
+            <div class="card mb-4" style="font-size:14px;">
+                <div class="card-header" style="font-size:16px;">
+                    Student submissions<!--span class="float-right">Total submissions : 3</span-->
+                </div>
+                <table class="table" style="font-size: 14px;">
+                    <thead class="thead">
+                        <tr>
+                            <th scope="col-2">ID</th>
+                            <th scope="col-2">Name</th>
+                            <th scope="col-2">Batch</th>
+                            <th scope="col-2">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{dytopic}}
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {{foot}}
+    </div>
+    <script type="application/javascript">
+        function fopen(list, sid) {
+            list.href = 'download?sid=' + sid + '&cid=' + document.getElementById('cid').innerHTML + '&fid=' + document.getElementById('fid').innerHTML + '&name=' + document.getElementById('name').innerHTML;
+            return false;
+        }
+    </script>
+</body>
+
+</html>

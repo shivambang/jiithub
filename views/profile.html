@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .page-container{
+      min-height: 100vh;
+      position: relative;
+      }
+        .repocard *{
+            font-size:14px;   
+        }
+        .repolink{
+            text-decoration: none;
+            color: inherit;
+        }
+        .repocard:hover{
+            cursor: pointer;
+            border: solid 1px #007bff;
+            box-shadow: 0px 2px #007bff;
+            transition: all 0.3s ease;
+        }
+        .basic-card{
+            background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+        }
+
+        .card-link a:hover{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-container" style="padding-bottom: 80px;">
+            {{header}}
+            <div class="container" style="padding-top:20px;padding-bottom:40px;">
+            <div class="basic row mb-5">
+                <div class=" col-12">
+                    <span class="text-muted" style="font-size:18px;">Basic information</span>
+                    <button style="display:none" class="btn btn-primary btn-sm" style="float:right;">Edit</button>
+                    <hr>
+                    <div class="card basic-card">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-size:24px;">{{uname}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{uid}}</h6>
+                            <p class="card-subtitle mb-3 text-muted">{{mail}}</p>
+                            <a href="#" class="card-link">
+                            <a class="btn btn-outline-danger text-danger btn-sm mr-2 shadow-sm">JIIT</a>
+                            <a class="btn btn-outline-info text-info btn-sm mr-2 shadow-sm">B.Tech</a>
+                            <a class="btn btn-outline-warning text-warning btn-sm mr-2 shadow-sm">{{batch}}</a>
+                            
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="urepo row mb-5" id='repo'>
+                <div class="basic col-12 heading">
+                    <span class="text-muted" style="font-size:16px;">Your Repositories</span>
+                    <a class="btn btn-primary btn-sm" href="/create" style="float:right;">+ Create new</a>
+                    <hr>
+                </div>
+                {{dyprofile}}
+                
+            </div>
+            
+            
+        </div>
+        {{footer}}
+    </div>
+    
+    
+</body>
+
+</html>
